@@ -1,22 +1,40 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HelloWorldComponent from "./helloworld.js";
+import $ from "./jquery.min.js";
+import NewsList from "./news_list.js";
 
 class App extends React.Component {
     constructor() {
         super();
-        this.state = {times:0};
+        this.state = {news:[]};
     }
 
-    onClickCount(){
-      this.state.times = this.state.times+1;
-      alert("touch"+this.state.times);
-    }
+    componentDidMount(){
+		$.ajax({
+			url : "http://gank.io/api/random/data/Android/20",
+			type : "get",
+			dataType : "json",
+			cache : false,
+			success : function(result){
+				/*notes是从数据库读取到的笔记数组*/
+				// console.log("请求成功了耶！！但是...数据呢？...");
+        var obj = eval(result);
+
+				this.setState({
+					news: obj.results
+				});
+				// console.log(this.state.notes);
+			}.bind(this),
+			error : function(){
+				console.log("视图渲染失败...");
+			}
+		});
+	}
 
     render() {
         return (
 
-<HelloWorldComponent onClickCount={this.onClickCount.bind(this)}/>
+<NewsList news={this.state.news}/>
 
 );
     }
