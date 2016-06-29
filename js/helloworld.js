@@ -13,7 +13,7 @@ export default class HelloWorldComponent extends React.Component {
         return (
 
 <div className="hello" style={style} >
-<h1>Hello World</h1>
+<h1>Webpack Demo</h1>
 <input type="button" value="确定" className="cancel_btn" onClick={ this.props.onClickCount }/>
 </div>
 
