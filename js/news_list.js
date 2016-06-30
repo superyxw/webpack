@@ -11,7 +11,7 @@ export default class NewsList extends React.Component{
   render(){
 
     var news_items=this.props.news.map( function(data,index){
-			return <NewsItem key = {index} url={data.url} desc={data.desc}/>;
+			return <NewsItem key = {index} imgs={data.imgs} url={data.url} desc={data.desc}/>;
 		});
     // var news_items = [];
     return(

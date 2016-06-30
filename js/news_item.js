@@ -11,7 +11,10 @@ export default class NewsItem extends React.Component {
   }
 
   render(){
-
-    return(<h3 onClick={this.onClickHandle.bind(this,this.props.desc)}>{this.props.desc}</h3>);
+    // var album = this.props.imgs.map(function(img){
+    //   return <img src={img}>
+    // })
+    return(
+      <h3 onClick={this.onClickHandle.bind(this,this.props.desc)}>{this.props.desc}</h3>);
   }
 }
