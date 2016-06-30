@@ -6,7 +6,12 @@ export default class NewsItem extends React.Component {
       this.state = {};
   }
 
+  onClickHandle(msg){
+    alert(msg);
+  }
+
   render(){
-    return(<h3>{this.props.desc}</h3>);
+
+    return(<h3 onClick={this.onClickHandle.bind(this,this.props.desc)}>{this.props.desc}</h3>);
   }
 }
