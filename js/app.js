@@ -17,28 +17,23 @@ class App extends React.Component {
 			dataType : "json",
 			cache : false,
 			success : function(result){
-				/*notes是从数据库读取到的笔记数组*/
-				// console.log("请求成功了耶！！但是...数据呢？...");
-        var obj = eval(result);
-
 				this.setState({
-					news: obj.results
+					news: result.results
 				});
-				// console.log(this.state.notes);
 			}.bind(this),
 			error : function(){
-				console.log("视图渲染失败...");
+				console.log("获取失败...");
 			}
 		});
 	}
 
     render() {
         return (
-          <div>
-<Head/>
-<NewsList news={this.state.news}/>
-</div>
-);
+          <div className="container">
+            <Head/>
+            <NewsList news={this.state.news}/>
+        </div>
+      );
     }
 }
 

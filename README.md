@@ -1,2 +1,2 @@
 # webpack
-* A DEMO FOR REACTJS with WEBPACK
+* A REACTJS DEMO with WEBPACK
