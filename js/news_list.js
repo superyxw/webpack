@@ -9,11 +9,14 @@ export default class NewsList extends React.Component{
 
   render(){
 
-    var news_items=this.props.news.map( function(data,index){
+    var style = {
+      margin:"100px 0px",
+    }
+    var news_items=this.props.news.map((data,index)=>{
 			return <NewsItem key = {index} imgs={data.imgs} url={data.url} desc={data.desc}/>;
 		});
     return(
-      <div>{news_items}</div>
+      <div style={style}>{news_items}</div>
     );
   }
 }
